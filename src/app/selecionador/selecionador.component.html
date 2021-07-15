@@ -1,0 +1,38 @@
+<h3>Selecionador de Datas</h3>
+
+<div style="margin-top: 20px;">
+    <label for='datainicial'>Data Inicial</label>
+    <input type="date" id="datainicial" [(ngModel)]='dataInicial' style="margin-left: 10px;">
+</div>
+
+<div style="margin-top: 20px;"> 
+    <label for='datafinal'>Data Final</label>
+    <input type="date" id="datafinal" [(ngModel)]='dataFinal' style="margin-left: 10px;">
+</div>
+
+<div style="margin-top: 20px;"> 
+    <button (click)='limpar()'>Limpar</button>
+</div>
+
+<table style="border: 1px solid black; width: 480px; margin-top: 25px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let objeto of listaFiltrada()' >
+            <th style="border: 1px solid black ;">
+                {{objeto.id}}
+            </th>
+            <th style="border: 1px solid black ;">
+                {{objeto.nome}}
+            </th>
+            <th style="border: 1px solid black ;">
+                {{objeto.data | date: 'dd/MM/yyyy'}}
+            </th>
+        </tr>
+    </tbody>
+</table>
